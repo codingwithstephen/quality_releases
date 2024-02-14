@@ -1,11 +1,12 @@
-
 trigger:
   none
   
 name: Azure Pipelines
+
 variables:
   python.version: '3.7.6'
   terraform.version: '0.13.4'
+
 stages:
 - stage: Provisioning
   displayName: Provisioning
@@ -59,12 +60,6 @@ stages:
     pool:
       name: Hosted Ubuntu 1604
     steps:
-    #Needed for Terraform VM deployment
-    # - task: InstallSSHKey@0
-    #   inputs:
-    #     knownHostsEntry: 'KNOWN_HOSTS_STRING'
-    #     sshPublicKey: 'PUBLIC_KEY'
-    #     sshKeySecureFile: 'id_rsa'
     - task: ArchiveFiles@2
       displayName: 'Archive FakeRestAPI'
       inputs:
